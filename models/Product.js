@@ -34,9 +34,9 @@ Product.init(
 		category_id: {
 			type: DataTypes.INTEGER,
 			references: {
-				model: 'category',
+				model: Category,
 				key: 'id',
-				deferrable: Deferrable.INITIALLY_IMMEDIATE,
+				deferrable: Deferrable.INITIALLY_DEFERRED,
 			},
 		},
 	},
