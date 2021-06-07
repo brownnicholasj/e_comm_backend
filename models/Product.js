@@ -36,7 +36,7 @@ Product.init(
 			references: {
 				model: 'category',
 				key: 'id',
-				deferrable: Deferrable.INITIALLY_DEFERRED,
+				deferrable: Deferrable.INITIALLY_IMMEDIATE,
 			},
 		},
 	},
