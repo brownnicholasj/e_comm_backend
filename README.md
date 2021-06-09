@@ -40,8 +40,8 @@ The following dependencies will be installed:
 
 ## Usage
 
-The user will start their server and allow the server to start listening for
-incoming communication ![usage001](./assets/images/usage001.jpg)
+The user will start their server via express and allow the server to start
+listening for incoming communication ![usage001](./assets/images/usage001.jpg)
 
 The server will then monitor for incoming messages and be listening on routes of
 .../api/categories, .../api/products, .../api/tags
@@ -81,56 +81,65 @@ A thanks to the following contributors to this project:
 
 ## Demo
 
-Click the following link to watch video demo of the application (3min41sec
-runtime)<br> https://youtu.be/AW5_VCIXF4w
+Click the following link to watch video demo of the application (2min55sec
+runtime)<br> https://youtu.be/qjhncF658j0
 
 ### Demo Script
 
-- 00:00 - start node app
-- 00:05 - cycle through options
-- 00:08 - View All Employees
-- 00:18 - View Departments
-- 00:23 - Add Department
-- 00:38 - View Roles
-- 00:43 - Add Role
-- 01:00 - Add Role, trigger duplicate notification
-- 01:18 - Add Employee
-- 01:41 - View Employee by Department
-- 01:53 - View Employee by Manager
-- 02:05 - Update Employee Role
-- 02:42 - Update Employee Manager
-- 03:02 - Delete Dept, trigger dependency message
-- 03:13 - Delete Role
-- 03:22 - Delete Department
-- 03:33 - View Utilized Budget
+- 00:00 - create database through schema and CLI
+- 00:11 - seed database through CLI
+- 00:22 - start server to begin listening
+- 00:30 - Insomnia call - Wrong Route (testing invalid path)
+- 00:34 - Insomnia call - Categories/GetAll
+- 00:39 - Insomnia call - Categories/GetById
+- 00:45 - Insomnia call - Categories/Post
+- 00:49 - Insomnia call - Categories/Put
+- 00:55 - MySQL table check to verify update
+- 01:13 - Insomnia call - Categories/Delete
+- 01:18 - MySQL table check to verify delete
+- 01:22 - Insomnia call - Products/GetAll
+- 01:28 - Insomnia call - Products/GetById
+- 01:32 - Insomnia call - Products/Post
+- 01:36 - MySQL table check to verify post
+- 01:47 - Insomnia call - Products/Put
+- 01:55 - MySQL table check to verify update
+- 02:01 - Insomnia call - Products/Delete
+- 02:06 - MySQL table check to verify delete
+- 02:12 - Insomnia call - Tags/GetAll
+- 02:19 - Insomnia call - Tags/GetById
+- 02:23 - Insomnia call - Tags/Post
+- 02:25 - MySQL table check to verify post
+- 02:35 - Insomnia call - Tags/Put
+- 02:40 - MySQL table check to verify update
+- 02:44 - Insomnia call - Tags/Delete
+- 02:48 - MySQL table check to verify delete
 
 ### Behind the Code
 
-- Constructors created and stored to organize code and actions. This allowed me
-  to build the application while minimizing possible bugs across multiple
-  actions <br> ![btc001](./assets/images/btc001.jpg)
+- The database schema is stored and can be used to create the database with the
+  MySQL shell commands <br> ![btc001](./assets/images/btc001.jpg)
 
-- Main inquirer prompt serves and the navigation for the application. Users will
-  be brought back to this menu after an action is completed: <br>
-  ![btc002](./assets/images/btc002.jpg)
+- The Database Models are defined within the models folder for Category,
+  Product, Tag, and ProductTag: <br>
+  ![btc002_1](./assets/images/btc002_1.jpg)<br>
+  ![btc002_2](./assets/images/btc002_2.jpg)<br>
+  ![btc002_3](./assets/images/btc002_3.jpg)<br>
+  ![btc002_4](./assets/images/btc002_4.jpg)
 
-- switch method used to process the users selection to the proper action within
-  the program: <br> ![btc003](./assets/images/btc003.jpg)
+- Associations are configured in the models folder within the index.js<br>
+  ![btc003](./assets/images/btc003.jpg)
 
-- Functions used to ask for additional user input, if needed, and to give all of
-  the properties to the proper constructor, based on the users selection: <br>
-  ![btc004](./assets/images/btc004.jpg)
+- Routes are defined within the routes/api folder to perform the CRUD actions
+  for each api ![btc004](./assets/images/btc004.jpg)
 
-  ![btc004)2](./assets/images/btc004_2.jpg)
-
-- Constructors requested the query using mysql and console.table the results<br>
+- Seed file provided can be ran to populate the database <br>
   ![btc005](./assets/images/btc005.jpg)
 
-- User inputs where the user must type (vs select), function used to format all
-  input the same (capitalize first, lowercase the rest)
+- Database access is done through variable file utilizing dotenv <br>
   ![btc006](./assets/images/btc006.jpg)
 
-- 'Exit' option triggers the endConnection function to close the connection <br>
+- Express is used to listen for api's and Sequelize is utilized to access and
+  perform functions within the database <br>
   ![btc007](./assets/images/btc007.jpg)
 
 ## Questions
