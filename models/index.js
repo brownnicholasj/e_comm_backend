@@ -21,10 +21,14 @@ Tag.belongsToMany(Product, {
 	through: ProductTag,
 });
 
-// TAKEN OUT AND WORKING STILL
-// ProductTag.belongsTo(Tag, {
+// // TAKEN OUT AND WORKING STILL
+// Tag.hasMany(ProductTag, {
 // 	foreignKey: 'tag_id',
 // });
+
+ProductTag.belongsTo(Tag, {
+	foreignKey: 'tag_id',
+});
 
 module.exports = {
 	Product,
