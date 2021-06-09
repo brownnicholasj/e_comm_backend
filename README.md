@@ -47,17 +47,26 @@ The server will then monitor for incoming messages and be listening on routes of
 .../api/categories, .../api/products, .../api/tags
 ![usage002](./assets/images/usage002.jpg)
 
-Informational query actions will perform a 'SELECT' query from mysql database to
-get the requested data ![usage003](./assets/images/usage003.gif)
+The server will be listening for GET requests on the main routes utilizing
+sequelize 'FindAll' and will SELECT all records and associated models
+![usage003](./assets/images/usage003.jpg)
 
-Add actions will perform an 'INSERT ITEM' query to add a new item to the mysql
-database. ![usage004](./assets/images/usage004.gif)
+The server will be listening for GET requests with an extended request (/:id)
+utilizing sequelize 'FindByPk' and will SELECT the specific record and
+associated models columns ![usage004](./assets/images/usage004.jpg)
 
-Update actions will perform an 'UPDATE' query a specific record within the
-database. ![usage005](./assets/images/usage005.gif)
+The server will be listening for PUT requests with an extended request (/:id)
+utilizing sequelize 'FindByPk' and will UPDATE the record
+![usage005](./assets/images/usage005.jpg)
 
-Delete actions will perform a 'DELETE' query to remove a record from the
-database ![usage006](./assets/images/usage006.gif)
+The server will be listening for DELETE requests with an extended request (/:id)
+utilizing sequelize 'FindByPk' and will DELETE the record and CASCADE DELETES
+where setup within the model associations
+![usage006](./assets/images/usage006.jpg)
+
+The server will be listening for POST requests on the main routes utilizing
+sequelize 'create' and will INSERT the record with all given attributes
+![usage007](./assets/images/usage007.jpg)
 
 ## License
 
